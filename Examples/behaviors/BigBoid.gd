@@ -15,11 +15,11 @@ extends CharacterBody3D
 @export var arrive_enabled:bool=false
 @export var player_enabled:bool=false
 
-func draw_gizmos():
-	DebugDraw3D.draw_arrow(global_position, global_position + force * 20, Color.RED, 0.1)
-	DebugDraw3D.draw_arrow(global_position, global_position + velocity, Color.YELLOW, 0.1)
+# func draw_gizmos():
+#	DebugDraw3D.draw_arrow(global_position, global_position + force * 20, Color.RED, 0.1)
+#	DebugDraw3D.draw_arrow(global_position, global_position + velocity, Color.YELLOW, 0.1)
 
-	DebugDraw3D.draw_sphere(target.global_position, slowing_distance, Color.BLUE_VIOLET)
+#	DebugDraw3D.draw_sphere(target.global_position, slowing_distance, Color.BLUE_VIOLET)
 
 var target:Node3D
 func _ready():
@@ -40,6 +40,7 @@ func seek(target_pos:Vector3):
 	return desired - velocity
 	
 func player():
+	
 	return Vector3.ZERO
 	pass	
 func calculate():
@@ -70,5 +71,5 @@ func _physics_process(delta):
 		look_at(global_transform.origin - velocity.normalized(), temp_up)
 	
 	move_and_slide()
-	draw_gizmos()
+	# draw_gizmos()
 	
